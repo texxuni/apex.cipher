@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Income Dominion – Teaser Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #ff1f1f;
+      --bg: #0a0a0a;
+      --text: #eaeaea;
+      --muted: #999;
+      --card: #111;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      padding: 80px 20px 120px;
+    }
+
+    .main-container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .teaser-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .teaser-header h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+
+    .teaser-header h1 span {
+      color: var(--text);
+      display: block;
+      font-weight: 400;
+      font-size: 1.2rem;
+      margin-top: 12px;
+    }
+
+    .teaser-header p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 950px;
+      margin: 0 auto;
+    }
+
+    .teaser-body {
+      font-size: 1.1rem;
+      color: var(--text);
+      max-width: 1100px;
+      margin: 60px auto 100px;
+      text-align: left;
+    }
+
+    strong {
+      color: var(--primary);
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 800;
+      text-align: center;
+      margin: 100px 0 40px;
+      letter-spacing: 0.6px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background: var(--primary);
+      display: block;
+      margin: 20px auto 0;
+      border-radius: 2px;
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .pillar {
+      background-color: var(--card);
+      padding: 40px;
+      border: 2px solid var(--primary);
+      border-radius: 20px;
+      box-shadow: 0 12px 35px rgba(255, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .pillar:hover {
+      transform: scale(1.05);
+      box-shadow: 0 20px 45px rgba(255, 0, 0, 0.2);
+    }
+
+    .pillar h3 {
+      font-size: 1.6rem;
+      margin-bottom: 16px;
+      color: var(--primary);
+    }
+
+    .pillar p {
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .teasers-section {
+      margin-top: 120px;
+    }
+
+    .teasers-grid {
+       display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 10fr));
+      gap: 50px;
+      margin-top: 40px;
+    }
+
+    .teaser-card {
+      background-color: var(--card);
+      border: 2px solid var(--primary);
+      border-radius: 20px;
+      padding: 36px;
+      box-shadow: 0 10px 30px rgba(255, 0, 0, 0.08);
+      text-align: center;
+      transition: all 0.3s ease;
+      margin-bottom: 20px;
+    }
+
+    .teaser-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 45px rgba(255, 0, 0, 0.18);
+    }
+
+    .teaser-card h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .teaser-card p {
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+
+    .gumroad-button {
+      display: inline-block;
+      font-size: 0.95rem;
+      padding: 14px 28px;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      background-color: transparent;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gumroad-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background-color: var(--primary);
+      transition: left 0.4s ease;
+      z-index: 0;
+    }
+
+    .gumroad-button:hover::before {
+      left: 0;
+    }
+
+    .gumroad-button:hover {
+      color: var(--bg);
+    }
+
+    .gumroad-button span {
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 768px) {
+      .teaser-header h1 {
+        font-size: 2.2rem;
+      }
+      .teaser-header p,
+      .teaser-body {
+        font-size: 1rem;
+      }
+    }
+  </style>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      AOS.init({ duration: 1200, once: true });
+    });
+  </script>
+</head>
+<body>
+  <div class="main-container" data-aos="fade-up">
+    <div class="teaser-header" data-aos="fade-up">
+      <h1 data-aos="fade-up">APEX CIPHER<span>Core</span></h1>
+      <p data-aos="fade-up">The old world is crumbling. While the masses cling to outdated systems, trading hours for dollars like digital serfs, a new order of wealth architects is rising from the chaos. QUANTUM LEVERAGE isn't just another opportunity — it's the weapon that separates the rulers from the ruled.</p>
+    </div>
+
+    <div class="teaser-body" data-aos="fade-up">
+      <p data-aos="fade-up"><strong>THE SHIFT HAS BEGUN. ARE YOU READY TO RISE?</strong><br><br>
+      AI is no longer the future it’s the present. While others scroll and stall, the elite are engineering their dominance. <strong>APEX CIPHER</strong> equips you with the weapons to build automated assets, intelligent systems, and limitless momentum.
+      <br><br>
+      This is not another passive course. It’s a call to take the throne.<br><br>
+      <strong>THE GREAT DIVIDE HAS BEGUN.</strong> While the masses chase trends, beg for opportunities, and trade time for pennies, a new breed of entrepreneur is emerging. They don't follow rules — they rewrite them. They don't wait for permission — they take what's theirs.
+      </p>
+
+      <p data-aos="fade-up"><strong>THE APEX FRAMEWORK:</strong><br>
+      Forget just building a business. Build an AI-powered economy that serves you daily across platforms, niches, and borders.
+      </p>
+
+      <p data-aos="fade-up"><strong>WELCOME TO THE APEX CIPHER</strong><br>
+      This isn't fluff or false promises. This is for the few who were born to dominate. <br>
+      The AI Income Dominion is where ambition meets automation. Where vision becomes velocity.</p>
+    </div>
+
+    <div class="section-title" data-aos="fade-up">The Three Pillars of Apex Cipher</div>
+    <div class="pillars" data-aos="fade-up">
+      <div class="pillar" data-aos="fade-up">
+        <h3 data-aos="fade-up">🏗️ BUILD</h3>
+        <p data-aos="fade-up">Create high-leverage assets that sell without effort. Stack offers that work while you sleep.</p>
+      </div>
+      <div class="pillar" data-aos="fade-up" data-aos-delay="200">
+        <h3 data-aos="fade-up">⚔️ COMMAND</h3>
+        <p data-aos="fade-up">Let AI agents handle your ops, sales & support while you focus on vision and domination.</p>
+      </div>
+      <div class="pillar" data-aos="fade-up" data-aos-delay="400">
+        <h3 data-aos="fade-up">📈 SCALE</h3>
+        <p data-aos="fade-up">Turn success into a system. Duplicate, automate, and expand without burnout.</p>
+      </div>
+    </div>
+
+    <div class="section-title" data-aos="fade-up">Apex Cipher Advantage</div>
+    <div class="teaser-body" data-aos="fade-up">
+      <p data-aos="fade-up"><strong>Strategic Superiority</strong>: Harness AI to gain unfair advantage.<br>
+      <strong>Velocity Over Volume</strong>: Move fast, break norms, and profit smarter.<br>
+      <strong>Global Presence</strong>: Sell worldwide while you sleep.<br>
+      <strong>Compounding Assets</strong>: Create once, sell forever.<br>
+      <strong>Control = Freedom</strong>: You own the tools. You own the income. No gatekeepers.</p>
+    </div>
+
+    <div class="section-title" data-aos="fade-up">Your Digital Destiny</div>
+    <div class="teaser-body" data-aos="fade-up">
+      <p data-aos="fade-up">You weren't born to follow.<br>
+      You were born to command, to build, to rise.<br>
+      The AI Income Dominion doesn’t just teach you how to make money it eliminates it as a limitation.<br><br>
+      <strong>The dominion is calling. The empire is yours if you choose to claim it.</strong></p>
+    </div>
+
+    <div class="teasers-section" data-aos="fade-up">
+      <h2 class="section-title" data-aos="fade-up">Explore Teasers & More</h2>
+      <div class="teasers-grid" data-aos="fade-up">
+        <div class="teaser-card" data-aos="fade-up">
+          <h2 data-aos="fade-up">AI SYSTEM</h2>
+          <p data-aos="fade-up">Complete Blueprint to Build Your First $10,000/Month Income Stream</p>
+          <a href="c:\Users\aryje\Downloads\AI System_ $10K_Month Blueprint - Teaser.pdf" class="gumroad-button" data-aos="fade-up" download><span>View Teaser</span></a>
+        </div>
+
+        <div class="teaser-card" data-aos="fade-up" data-aos-delay="150">
+          <h2 data-aos="fade-up">AI PROMPT</h2>
+          <p data-aos="fade-up">50+ Professional Prompts That Turn Any AI Into Your Personal Assistant</p>
+          <a href="c:\Users\aryje\Downloads\AI Prompts Collection - Teaser.pdf" class="gumroad-button" data-aos="fade-up" download><span>View Teaser</span></a>
+        </div>
+      </div>
+      <div class="teaser-card" data-aos="fade-up" data-aos-delay="150">
+          <h2 data-aos="fade-up">AI IN FASHION</h2>
+          <p data-aos="fade-up">Where Algorithms Meet Artistry and Silicon Dreams Shape Tomorrow's Wardrobe</p>
+          <a href="c:\Users\aryje\Downloads\AI in Fashion - Extended Teaser.pdf" class="gumroad-button" data-aos="fade-up" download><span>View Teaser</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

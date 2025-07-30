@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apex Cipher</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary-color: #ff1f1f;
+      --bg-color: #0a0a0a;
+      --text-light: #eaeaea;
+      --text-muted: #888888;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      font-family: 'Outfit', sans-serif;
+      color: var(--text-light);
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 60px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      max-width: 160px;
+      margin-bottom: 40px;
+      filter: drop-shadow(0 0 40px var(--primary-color));
+      transition: transform 0.4s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    h1 span {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--text-light);
+      margin-top: 10px;
+      display: block;
+    }
+
+    p.subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-bottom: 50px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 600;
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    nav a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background-color: var(--primary-color);
+      transition: left 0.4s ease;
+      z-index: 0;
+    }
+
+    nav a:hover::before {
+      left: 0;
+    }
+
+    nav a:hover {
+      color: var(--bg-color);
+    }
+
+    nav a span {
+      position: relative;
+      z-index: 1;
+    }
+
+    footer {
+      margin-top: 80px;
+      padding: 30px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .logo {
+        max-width: 120px;
+        margin-bottom: 30px;
+      }
+
+      nav a {
+        padding: 12px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="c:\Users\aryje\Downloads\20250725_0149_Futuristic Logo Design_simple_compose_01k0zddgqjeajv65c49gnvhhzr.png" alt="Apex Cipher Logo" class="logo" />
+    <h1>APEX CIPHER<br><span>Build, Command & Scale Your Digital Power</span></h1>
+    <p class="subtitle">Your empire begins with strategy, precision, and digital excellence.</p>
+    <nav>
+      <a href="product.html"><span>Products</span></a>
+      <a href="teaser.html"><span>Teasers</span></a>
+      <a href="coursepage.html"><span>Free Courses</span></a>
+      <a href="temp1.html"><span>Business Planner</span></a>
+    </nav>
+  </header>
+
+  <footer>
+    © 2025 Apex Cipher. All rights reserved.
+  </footer>
+
+</body>
+</html>

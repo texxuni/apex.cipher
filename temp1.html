@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>APEX CIPHER – Business Planner</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet" />
+
+  <!-- AOS Animation Styles -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #ff1f1f;
+      --bg: #0a0a0a;
+      --text: #eaeaea;
+      --muted: #999;
+      --card: #111;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      padding: 80px 20px 120px;
+    }
+
+    .container {
+      max-width: 1300px;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      text-align: center;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    h1 span {
+      color: var(--text);
+      display: block;
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-top: 12px;
+    }
+
+    .sub {
+      font-size: 1.1rem;
+      color: var(--muted);
+      text-align: center;
+      max-width: 950px;
+      margin: 0 auto 60px;
+    }
+
+    .block {
+      background-color: var(--card);
+      border: 2px solid var(--primary);
+      border-radius: 20px;
+      padding: 36px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 30px rgba(255, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .block:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 45px rgba(255, 0, 0, 0.15);
+    }
+
+    .block h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--primary);
+    }
+
+    .block h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 20px 0 10px;
+      color: var(--text);
+    }
+
+    .block p {
+      font-size: 1rem;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .block-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      margin-top: 12px;
+    }
+
+    .block-table th,
+    .block-table td {
+      border: 1px solid #333;
+      padding: 10px;
+      text-align: left;
+      background-color: #1a1a1a;
+      color: var(--text);
+    }
+
+    .block-table th {
+      background-color: #2a2a2a;
+      color: var(--primary);
+    }
+
+    .add-btn, .pdf-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+      margin-top: 1rem;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      background: transparent;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .add-btn:hover, .pdf-btn:hover {
+      background: var(--primary);
+      color: var(--bg);
+    }
+
+    .pdf-btn {
+      display: block;
+      margin: 60px auto 0 auto;
+      font-size: 1rem;
+    }
+
+    @media print {
+      .add-btn, .pdf-btn, button, input[type="checkbox"], [contenteditable]:after {
+        display: none !important;
+      }
+
+      body, html {
+        background: #fff !important;
+        color: #111 !important;
+        font-size: 15px !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .container {
+        max-width: 100% !important;
+        padding: 0 !important;
+      }
+
+      .block {
+        background: #fff !important;
+        border: none !important;
+        color: #111 !important;
+        page-break-inside: avoid !important;
+        padding: 24px 18px !important;
+        margin-bottom: 18px !important;
+        box-shadow: none !important;
+      }
+
+      .block p {
+      font-size: 1rem;
+      margin-bottom: 12px;
+      color: rgba(0, 0, 0, 0.772);
+    }
+      .block-table th, .block-table td {
+        border: 1.2px solid #222 !important;
+        background: #fff !important;
+        color: #111 !important;
+        padding: 8px 6px !important;
+        font-size: 14px !important;
+      }
+
+      .block-table th {
+        background: #f5f5f5 !important;
+        color: rgb(0, 0, 0) !important;
+      }
+
+      h1 {
+        font-size: 28px !important;
+        color: rgb(0, 0, 0) !important;
+        text-align: center !important;
+        margin-bottom: 18px !important;
+      }
+      h2 , h3 {
+        color: rgb(0, 0, 0) !important;
+      }
+      h1 span {
+        color: #111 !important;
+        font-size: 16px !important;
+        font-weight: 400 !important;
+        margin-top: 6px !important;
+      }
+
+      .sub {
+        display: none !important;
+        color: #000000;
+      }
+
+      [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>APEX CIPHER<span>Business Planner</span></h1>
+    <p class="sub">This strategic roadmap guides you from refining your core idea to scaling your empire. Capture insights, track growth, and build your AI-powered dominion.</p>
+
+    <div class="block" data-aos="fade-up">
+      <h2>Business Idea</h2>
+      <p contenteditable="true">Describe the core concept of your business here.</p>
+    </div>
+
+    <div class="block" data-aos="fade-up">
+      <h2>Target Customer</h2>
+      <p contenteditable="true">Who exactly are you serving?</p>
+    </div>
+
+    <div class="block" data-aos="fade-up">
+      <h2>Offer & Pricing</h2>
+      <table class="block-table" id="offer-pricing-table">
+        <thead>
+          <tr><th>Product</th><th>Price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+        </tbody>
+      </table>
+      <button class="add-btn" onclick="addRow('offer-pricing-table')">+ Add Offer</button>
+    </div>
+
+     <div class="block" data-aos="fade-up">
+      <h2>Strategy Overview</h2>
+      <table class="block-table" id="strategy-table">
+        <thead><tr><th>Area</th><th>Current Status</th><th>3-Month Goal</th><th>Key Actions</th><th>Resources</th></tr></thead>
+        <tbody>
+          <tr><td>Products/Offers</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Traffic</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Automation</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Team</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+        </tbody>
+      </table>
+      <button class="add-btn" onclick="addRow('strategy-table')">+ Add Row</button>
+    </div>
+
+    <div class="block" data-aos="fade-up">
+      <h2>$10K System Planner</h2>
+      <h3>Monthly Map</h3>
+      <table class="block-table" id="plan-table">
+        <thead><tr><th>Month</th><th>Offer</th><th>Target</th><th>Actual</th><th>Traffic</th><th>Conv.%</th></tr></thead>
+        <tbody><tr><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr></tbody>
+      </table>
+      <button class="add-btn" onclick="addRow('plan-table')">+ Add Month</button>
+    </div>
+
+    <div class="block" data-aos="fade-up">
+      <h2>Launch Plan</h2>
+      <h3>Key Steps</h3>
+      <div id="launch-todos">
+        <div class="todo-item"><input type="checkbox"><label>Validate idea</label></div>
+      </div>
+      <button class="add-btn" onclick="addTodo('launch-todos')">+ Add Step</button>
+    </div>
+
+    <div class="block" data-aos="fade-up">
+      <h2>Budget</h2>
+      <table class="block-table" id="budget-table">
+        <thead><tr><th>Item</th><th>Cost</th></tr></thead>
+        <tbody><tr><td contenteditable="true"></td><td contenteditable="true"></td></tr></tbody>
+      </table>
+      <button class="add-btn" onclick="addRow('budget-table')">+ Add Expense</button>
+    </div>
+
+    <div class="block" data-aos="fade-up">
+      <h2>Checklist</h2>
+      <h3>Action Items</h3>
+      <div id="checklist-container">
+        <div class="todo-item"><input type="checkbox"><label>Register domain</label></div>
+      </div>
+      <button class="add-btn" onclick="addTodo('checklist-container')">+ Add Item</button>
+    </div>
+
+    <div class="block" data-aos="fade-up"><h2>Revenue Plan</h2><p contenteditable="true">How will you reach your revenue goals?</p></div>
+    <div class="block" data-aos="fade-up"><h2>Content Strategy</h2><p contenteditable="true">What content will attract your ideal clients?</p></div>
+    <div class="block" data-aos="fade-up"><h2>Growth Map</h2><p contenteditable="true">How do you scale from 0 to 10K/month?</p></div>
+    <div class="block" data-aos="fade-up"><h2>Tools & Systems</h2><p contenteditable="true">List all software or systems you're using</p></div>
+
+    <div class="block" data-aos="fade-up">
+      <h2>AI Wealth Vault</h2>
+      <div class="template">
+        <h4>Product Creation Prompts</h4>
+        <p contenteditable="true">1. Generate 10 digital product ideas for [niche] solving [problem]</p>
+        <p contenteditable="true">2. Outline a [product] on [topic] including key elements</p>
+      </div>
+      <div class="template">
+        <h4>Sales Copy Prompts</h4>
+        <p contenteditable="true">1. Write a high-converting sales page for [name] highlighting benefits</p>
+        <p contenteditable="true">2. Draft 5 email subject lines for [offer] to [audience]</p>
+      </div>
+    </div>
+
+    <div class="block" data-aos="fade-up">
+      <h2>Client Command</h2>
+      <table class="block-table" id="lead-table">
+        <thead><tr><th>Name</th><th>Source</th><th>Status</th><th>Last Contact</th><th>Next Step</th></tr></thead>
+        <tbody><tr><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr></tbody>
+      </table>
+      <button class="add-btn" onclick="addRow('lead-table')">+ Add Lead</button>
+    </div>
+
+    <div class="block" data-aos="fade-up">
+      <h2>Sales Script Template</h2>
+      <div class="template">
+        <p contenteditable="true">"Hi [Name], I noticed you [action]. I help [audience] achieve [result]. Sound good?"</p>
+      </div>
+    </div>
+
+    <div class="block" data-aos="fade-up">
+      <h2>Automation Map</h2>
+      <table class="block-table" id="auto-table">
+        <thead><tr><th>Process</th><th>Current Method</th><th>Automation Tool</th><th>Time Saved</th><th>Status</th></tr></thead>
+        <tbody><tr><td contenteditable="true">Lead Capture</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr></tbody>
+      </table>
+      <button class="add-btn" onclick="addRow('auto-table')">+ Add Process</button>
+    </div>
+
+    <div class="block" data-aos="fade-up">
+      <h2>Delegation Checklist</h2>
+      <table class="block-table" id="delegation-table">
+        <thead><tr><th>Task</th><th>Assigned To</th><th>Training Needed</th><th>Completion Date</th></tr></thead>
+        <tbody><tr><td contenteditable="true">Content Creation</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr></tbody>
+      </table>
+      <button class="add-btn" onclick="addRow('delegation-table')">+ Delegate Task</button>
+    </div>
+
+    <button class="pdf-btn" onclick="printPDF()">Download PDF</button>
+  </div>
+
+  <!-- Load AOS JavaScript -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    function printPDF() {
+      window.print();
+    }
+
+    function addRow(id) {
+      const table = document.getElementById(id).querySelector('tbody');
+      const columns = document.getElementById(id).querySelectorAll('thead th').length;
+      const newRow = table.insertRow();
+      for (let i = 0; i < columns; i++) {
+        const cell = newRow.insertCell();
+        cell.contentEditable = "true";
+        cell.innerText = "";
+      }
+    }
+
+    AOS.init({ duration: 500, once: true });
+  </script>
+</body>
+</html>
